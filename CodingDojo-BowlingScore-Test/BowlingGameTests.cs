@@ -57,10 +57,10 @@ namespace CodingDojo_BowlingScore_Test
             {
                 for (int i = 0; i < 22; i++)
                 {
-                    game.throwBall(9);
+                    game.throwBall(1);
                 }
             }
-            catch (BowlingGameAlreadyOverException e)
+            catch (BowlingGameOverException e)
             {
                 threwAnError = true;
             }
