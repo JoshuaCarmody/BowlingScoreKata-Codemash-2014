@@ -68,5 +68,18 @@ namespace CodingDojo_BowlingScore_Test
             Assert.IsTrue(threwAnError);
         }
 
+        [TestMethod]
+        public void Rolling_18_3s_Should_Advance_To_Tenth_Frame()
+        {
+            var game = new BowlingGame();
+            
+            for(int i=0;i<18;i++)
+            {
+                game.throwBall(3);
+            }
+
+            Assert.AreEqual(10, game.Frame);
+        }
+
     }
 }
