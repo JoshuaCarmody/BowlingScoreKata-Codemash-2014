@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+using CodingDojo_BowlingScore;
+
 namespace CodingDojo_BowlingScore_Test
 {
     [TestClass]
