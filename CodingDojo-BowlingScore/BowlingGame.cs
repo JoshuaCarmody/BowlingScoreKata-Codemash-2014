@@ -29,6 +29,13 @@ namespace CodingDojo_BowlingScore
                 return currentFrame;
             }
         }
+        public bool IsOver
+        {
+            get
+            {
+                return gameIsOver;
+            }
+        }
 
         public void throwBall(int pinsHit)
         {
