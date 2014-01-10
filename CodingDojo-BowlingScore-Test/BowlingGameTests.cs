@@ -18,7 +18,22 @@ namespace CodingDojo_BowlingScore_Test
                 game.throwBall(10);
             }
 
-            Assert.AreEqual(game.Score, 300);
+            Assert.AreEqual(300, game.Score);
+        }
+
+        [TestMethod]
+        public void Rolling_A_Strike_Then_18_3s_Should_Score_70()
+        {
+            var game = new BowlingGame();
+            
+            game.throwBall(10);
+            
+            for(int i=0;i<18;i++)
+            {
+                game.throwBall(3);
+            }
+            
+            Assert.AreEqual((3 * 18) + 16, game.Score);
         }
 
         [TestMethod]
@@ -31,7 +46,7 @@ namespace CodingDojo_BowlingScore_Test
                 game.throwBall(0);
             }
 
-            Assert.AreEqual(game.Score, 0);
+            Assert.AreEqual(0, game.Score);
         }
 
         [TestMethod]
@@ -44,7 +59,7 @@ namespace CodingDojo_BowlingScore_Test
                 game.throwBall(4);
             }
 
-            Assert.AreEqual(game.Score, 80);
+            Assert.AreEqual(80, game.Score);
         }
         
         [TestMethod]
