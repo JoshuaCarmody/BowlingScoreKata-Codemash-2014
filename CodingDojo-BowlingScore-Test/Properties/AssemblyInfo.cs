@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CodingDojo-Tests")]
+[assembly: AssemblyTitle("CodingDojo-BowlingScore-Test")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Telerik AD")]
-[assembly: AssemblyProduct("CodingDojo-Tests")]
-[assembly: AssemblyCopyright("Copyright @ Telerik 2002-2012")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("CodingDojo-BowlingScore-Test")]
+[assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("cd04d5d1-b0c8-43da-b676-b11b2dd94c0d")]
+[assembly: Guid("8a9534e9-b615-4f35-866d-0ff6544298b3")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -31,5 +31,6 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion("123.4.5.0")]
-[assembly: AssemblyFileVersion("123.4.5.0")]
+// [assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]
