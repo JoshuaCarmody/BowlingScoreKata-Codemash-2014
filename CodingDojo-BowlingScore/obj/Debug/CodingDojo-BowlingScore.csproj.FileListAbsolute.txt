@@ -1,5 +1,6 @@
 C:\Joshua\Projects\CodingDojo-BowlingScore\CodingDojo-BowlingScore\bin\Debug\CodingDojo-BowlingScore.exe.config
 C:\Joshua\Projects\CodingDojo-BowlingScore\CodingDojo-BowlingScore\bin\Debug\CodingDojo-BowlingScore.exe
 C:\Joshua\Projects\CodingDojo-BowlingScore\CodingDojo-BowlingScore\bin\Debug\CodingDojo-BowlingScore.pdb
+C:\Joshua\Projects\CodingDojo-BowlingScore\CodingDojo-BowlingScore\obj\Debug\CodingDojo-BowlingScore.csprojResolveAssemblyReference.cache
 C:\Joshua\Projects\CodingDojo-BowlingScore\CodingDojo-BowlingScore\obj\Debug\CodingDojo-BowlingScore.exe
 C:\Joshua\Projects\CodingDojo-BowlingScore\CodingDojo-BowlingScore\obj\Debug\CodingDojo-BowlingScore.pdb

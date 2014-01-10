@@ -19,6 +19,17 @@ namespace CodingDojo_BowlingScore_Test
         }
 
         [TestMethod]
+        public void Bowling_Frame_Should_Allow_Third_Throw_On_Spare_On_Tenth_Frame()
+        {
+            var frame = new BowlingFrame(10);
+            frame.throwBall(9);
+            frame.throwBall(1);
+            Assert.IsFalse(frame.IsOver);
+            frame.throwBall(6);
+            Assert.AreEqual(16, frame.Score);
+        }
+
+        [TestMethod]
         public void Bowling_Frame_Should_Throw_Exception_If_You_Try_To_Roll_4_Balls()
         {
             var frame = new BowlingFrame(1);

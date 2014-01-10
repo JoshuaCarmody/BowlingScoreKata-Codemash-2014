@@ -109,5 +109,21 @@ namespace CodingDojo_BowlingScore_Test
             Assert.AreEqual(10, game.CurrentFrameNumber);
         }
 
+        [TestMethod]
+        public void Spare_On_Tenth_Frame_Should_Allow_Extra_Throw()
+        {
+            var game = new BowlingGame();
+
+            for (int i = 0; i < 19; i++)
+            {
+                game.throwBall(4);
+            }
+            game.throwBall(6);
+
+            Assert.IsFalse(game.IsOver);
+            game.throwBall(4);
+            Assert.AreEqual((18 * 4) + 14, game.Score);
+        }
+
     }
 }

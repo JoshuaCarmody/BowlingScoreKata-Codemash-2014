@@ -14,13 +14,13 @@ namespace CodingDojo_BowlingScore
             {
                 return '-';
             }
-            if(frame.Rolls[throwNumber - 1] == 10 && (frame.Number == 10 || throwNumber == 1))
-            {
-                return 'X';
-            }
             if (throwNumber == 2 && frame.IsSpare)
             {
                 return '/';
+            }
+            if (frame.Rolls[throwNumber - 1] == 10 && (frame.Number == 10 || throwNumber == 1))
+            {
+                return 'X';
             }
             return Convert.ToChar(frame.Rolls[throwNumber - 1].ToString());
         }
@@ -34,13 +34,17 @@ namespace CodingDojo_BowlingScore
             {
                 returnString.AppendFormat("     {0,2:##}", i + 1);
             }
-            returnString.AppendLine("\n" + new String('-', game.Frames.Count() * 7));
+            returnString.AppendLine("\n" + new String('-', (game.Frames.Count() * 7) + 2));
 
             // Render individual frame results
             foreach(var frame in game.Frames)
             {
-                string frameNumber = String.Format("    {0} {1}", RenderThrowScore(frame, 1), RenderThrowScore(frame, 2));
-                returnString.Append(frameNumber);
+                returnString.AppendFormat("    {0} {1}", RenderThrowScore(frame, 1), RenderThrowScore(frame, 2));
+                if (frame.Number == 10 && (frame.IsStrike || frame.IsSpare))
+                {
+                    returnString.AppendFormat(" {0}", RenderThrowScore(frame, 3));
+                }
+
             }
             returnString.AppendLine("");
 
