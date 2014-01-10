@@ -10,7 +10,6 @@ namespace CodingDojo_BowlingScore
     {
         protected int[] rolls;
         protected int currentRoll = 0;
-        protected int frameScore = 0;
         protected int bonusScore = 0;
         protected int frameNumber;
         protected bool frameIsSpare = false;
@@ -49,7 +48,7 @@ namespace CodingDojo_BowlingScore
         {
             get
             {
-                return frameScore;
+                return rolls.Sum() + bonusScore;
             }
         }
 

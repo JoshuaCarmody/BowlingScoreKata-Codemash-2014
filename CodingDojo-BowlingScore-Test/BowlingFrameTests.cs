@@ -9,6 +9,15 @@ namespace CodingDojo_BowlingScore_Test
     public class BowlingFrameTests
     {
         [TestMethod]
+        public void Frame_Should_Return_Correct_Score_For_2_Small_Balls()
+        {
+            var frame = new BowlingFrame(1);
+            frame.throwBall(4);
+            frame.throwBall(2);
+            Assert.AreEqual(6, frame.Score);
+        }
+
+        [TestMethod]
         public void Bowling_Frame_Should_Throw_Exception_If_You_Try_To_Roll_4_Balls()
         {
             var frame = new BowlingFrame(1);
