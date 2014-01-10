@@ -33,6 +33,19 @@ namespace CodingDojo_BowlingScore_Test
         }
 
         [TestMethod]
+        public void Rolling_20_4s_Should_Score_80()
+        {
+            var game = new BowlingGame();
+
+            for (int i = 0; i < 20; i++)
+            {
+                game.throwBall(4);
+            }
+
+            Assert.AreEqual(game.Score, 80);
+        }
+        
+        [TestMethod]
         public void Rolling_22_Balls_Should_Be_Illegal()
         {
             var game = new BowlingGame();
