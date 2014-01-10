@@ -106,6 +106,7 @@ namespace CodingDojo_BowlingScore_Test
             Assert.IsTrue(frame.IsOver);
         }
 
+        [TestMethod]
         public void Tenth_Frame_Should_Allow_3_Throws_If_Strike()
         {
             var frame = new BowlingFrame(10);
@@ -117,6 +118,7 @@ namespace CodingDojo_BowlingScore_Test
             Assert.IsTrue(frame.IsOver);
         }
 
+        [TestMethod]
         public void Tenth_Frame_Should_Allow_3_Throws_If_Spare()
         {
             var frame = new BowlingFrame(10);
@@ -128,6 +130,7 @@ namespace CodingDojo_BowlingScore_Test
             Assert.IsTrue(frame.IsOver);
         }
 
+        [TestMethod]
         public void Frame_Should_Throw_Exception_If_Throws_Add_Up_To_More_Than_10()
         {
             var frame = new BowlingFrame(4);

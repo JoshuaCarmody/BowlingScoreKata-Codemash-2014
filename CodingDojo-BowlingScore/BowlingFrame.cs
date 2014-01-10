@@ -65,6 +65,12 @@ namespace CodingDojo_BowlingScore
 
         public void throwBall(int pinsHit)
         {
+            // You can only knock over a total of 10 pins.
+            if (rolls.Sum() + pinsHit > 10)
+            {
+                throw new InvalidBowlingFrameException();
+            }
+
             rolls[currentRoll] = pinsHit;
             currentRoll++;
         }
