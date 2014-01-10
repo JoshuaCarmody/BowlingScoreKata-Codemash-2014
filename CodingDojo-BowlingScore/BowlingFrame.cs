@@ -152,20 +152,7 @@ namespace CodingDojo_BowlingScore
                     frameScoringCompleted = true;
                 }
             }
-            // Frame 10
-            else
-            {
-                if (frameIsStrike && rolls.Count == 3)
-                {
-                    bonusScore = rolls[1] + rolls[2];
-                    frameScoringCompleted = true;
-                }
-                else if (frameIsStrike && rolls.Count == 3)
-                {
-                    bonusScore = rolls[2];
-                    frameScoringCompleted = true;
-                }
-            }
+            // No bonus points are needed for frame 10, because the roll scores are already included.
         }
     }
 }
