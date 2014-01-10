@@ -94,7 +94,17 @@ namespace CodingDojo_BowlingScore
                 frameIsOver = true;
             }
             // Throwing a strike ends the frame, if not the tenth.
-            if (frameNumber != 10 && frameIsStrike)
+            else if (frameNumber != 10 && frameIsStrike)
+            {
+                frameIsOver = true;
+            }
+            // If you didn't throw a strike in the 10th frame, you only get 2 throws.
+            else if (frameNumber == 10 && currentRoll >= 1 && !frameIsSpare && !frameIsStrike)
+            {
+                frameIsOver = true;
+            }
+            // If you threw a strike or a spare in the 10th frame, then the frame ends after 3 balls.
+            else if (frameNumber == 10 && currentRoll >= 2)
             {
                 frameIsOver = true;
             }
