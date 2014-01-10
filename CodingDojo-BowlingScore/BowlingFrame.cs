@@ -14,6 +14,7 @@ namespace CodingDojo_BowlingScore
         protected bool frameIsSpare = false;
         protected bool frameIsStrike = false;
         protected bool frameIsOver = false;
+        protected bool frameScoringCompleted = false;
 
         public bool IsSpare
         {
@@ -115,13 +116,55 @@ namespace CodingDojo_BowlingScore
             {
                 frameIsOver = true;
             }
+
+            calculateScore(null);
         }
 
-        public void calculateBonusScore(BowlingFrame[] nextFrames)
+        public void calculateScore(List<BowlingFrame> nextFrames)
         {
+            frameScoringCompleted = false;
+            bonusScore = 0;
+
+            // No bonus points this frame if you didn't hit all 10 pins.
+            if (!frameIsStrike && !frameIsSpare)
+            {
+                frameScoringCompleted = true;
+                return;
+            }
+
             if (frameNumber < 10)
             {
+                if (nextFrames == null)
+                {
+                    return; // Can't calculate bonus points. The next balls haven't been thrown (or weren't provided).
+                }
 
+                var nextRolls = nextFrames.SelectMany(f => f.rolls).ToList();
+
+                if (frameIsSpare && nextRolls.Count >= 1)
+                {
+                    bonusScore = nextRolls[0];
+                    frameScoringCompleted = true;
+                }
+                else if (frameIsStrike && nextRolls.Count >= 2)
+                {
+                    bonusScore = nextRolls[0] + nextRolls[1];
+                    frameScoringCompleted = true;
+                }
+            }
+            // Frame 10
+            else
+            {
+                if (frameIsStrike && rolls.Count == 3)
+                {
+                    bonusScore = rolls[1] + rolls[2];
+                    frameScoringCompleted = true;
+                }
+                else if (frameIsStrike && rolls.Count == 3)
+                {
+                    bonusScore = rolls[2];
+                    frameScoringCompleted = true;
+                }
             }
         }
     }

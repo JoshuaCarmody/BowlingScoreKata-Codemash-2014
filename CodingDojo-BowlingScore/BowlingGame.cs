@@ -58,6 +58,21 @@ namespace CodingDojo_BowlingScore
         private void RecalculateScore()
         {
             gameScore = 0;
+
+            for (int i = 0; i < gameFrames.Length; i++)
+            {
+                List<BowlingFrame> nextFrames = new List<BowlingFrame>();
+                if (i < (gameFrames.Length - 1))
+                {
+                    nextFrames.Add(gameFrames[i + 1]);
+                }
+                if (i < (gameFrames.Length - 2))
+                {
+                    nextFrames.Add(gameFrames[i + 2]);
+                }
+                gameFrames[i].calculateScore(nextFrames);
+            }
+
             foreach (var frame in gameFrames)
             {
                 gameScore += frame.Score;
