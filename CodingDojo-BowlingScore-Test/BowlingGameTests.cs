@@ -22,6 +22,19 @@ namespace CodingDojo_BowlingScore_Test
         }
 
         [TestMethod]
+        public void Rolling_21_5s_Should_Score_150()
+        {
+            var game = new BowlingGame();
+
+            for (int i = 0; i < 21; i++)
+            {
+                game.throwBall(5);
+            }
+
+            Assert.AreEqual(150, game.Score);
+        }
+
+        [TestMethod]
         public void Rolling_A_Strike_Then_18_3s_Should_Score_70()
         {
             var game = new BowlingGame();

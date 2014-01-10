@@ -174,5 +174,20 @@ namespace CodingDojo_BowlingScore_Test
             Assert.AreEqual(16, frame1.Score);
         }
 
+        [TestMethod]
+        public void Frame_Should_Score_13_When_Spare_Followed_By_Two_3s()
+        {
+            var frame1 = new BowlingFrame(1);
+            var frame2 = new BowlingFrame(2);
+
+            frame1.throwBall(7);
+            frame1.throwBall(3);
+            frame2.throwBall(3);
+            frame2.throwBall(3);
+
+            frame1.calculateScore(new List<BowlingFrame> { frame2 });
+
+            Assert.AreEqual(13, frame1.Score);
+        }
     }
 }
