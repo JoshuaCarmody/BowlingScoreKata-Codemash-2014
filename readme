@@ -1,5 +1,16 @@
-At Codemash 2014 I attended Telerik's "Code Dojo". There I did a Kata, the objective of which was to accurately keep score of a bowling game. I did about 75% of this during the Dojo, then added to it here and there throughout the rest of the afternoon. The code here represents about 4 hours of coding total. My main objective was to practice TDD, so it's not *too* bad, but it was quick and dirty enough that I didn't comment it much, and the string "rendering" class was kind of thrown together at the last minute just to make it more pleasant to test.
+At Codemash 2014 I attended Telerik's "Code Dojo".
+There I did a Kata, the objective of which was to accurately
+keep score of a bowling game. I did about 75% of this during
+the Dojo, then added to it here and there throughout the rest
+of the afternoon. The code here represents about 4 hours of
+coding total. My main objective was to practice TDD, so it's
+not *too* bad, but it was quick and dirty enough that I didn't
+comment it much, and the string "rendering" class was kind of
+thrown together at the last minute just to make it more
+pleasant to test.
 
 License:
-In the unlikely event that you reproduce this on a blog or in print somewhere, it'd be nice if you gave me credit (or blame). Otherwise, do whatever you want with it.
+In the unlikely event that you reproduce this on a blog or in
+print somewhere, it'd be nice if you gave me credit (or blame).
+Otherwise, do whatever you want with it.
 
