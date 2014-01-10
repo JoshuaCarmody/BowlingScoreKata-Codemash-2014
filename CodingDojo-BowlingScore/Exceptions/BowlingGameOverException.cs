@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodingDojo_BowlingScore
 {
-    public class BowlingGameAlreadyOverException : Exception
+    public class BowlingGameOverException : Exception
     {
     }
 }

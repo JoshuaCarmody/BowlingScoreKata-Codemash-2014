@@ -12,6 +12,7 @@ namespace CodingDojo_BowlingScore
 
         protected int gameScore = 0;
         protected int currentFrame = 1;
+        protected bool gameIsOver = false;
 
         public int Score
         {
@@ -31,11 +32,24 @@ namespace CodingDojo_BowlingScore
 
         public void throwBall(int pinsHit)
         {
+            // Can't throw balls if the game is over. Duh.
+            if (gameIsOver)
+            {
+                throw new BowlingGameOverException();
+            }
+
             gameFrames[currentFrame - 1].throwBall(pinsHit);
 
             if (gameFrames[currentFrame - 1].IsOver)
             {
-                currentFrame++;
+                if (currentFrame == 10)
+                {
+                    gameIsOver = true;
+                }
+                else
+                {
+                    currentFrame++;
+                }
             }
 
             RecalculateScore();
