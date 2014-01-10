@@ -106,7 +106,7 @@ namespace CodingDojo_BowlingScore_Test
                 game.throwBall(3);
             }
 
-            Assert.AreEqual(10, game.Frame);
+            Assert.AreEqual(10, game.CurrentFrameNumber);
         }
 
     }

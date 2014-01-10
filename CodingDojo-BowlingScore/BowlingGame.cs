@@ -22,18 +22,33 @@ namespace CodingDojo_BowlingScore
             }
         }
 
-        public int Frame
+        public int CurrentFrameNumber
         {
             get
             {
                 return currentFrame;
             }
         }
+
         public bool IsOver
         {
             get
             {
                 return gameIsOver;
+            }
+        }
+        public BowlingFrame[] Frames
+        {
+            get
+            {
+                return gameFrames;
+            }
+        }
+        public int CurrentThrow
+        {
+            get
+            {
+                return gameFrames[currentFrame - 1].Rolls.Count() + 1;
             }
         }
 

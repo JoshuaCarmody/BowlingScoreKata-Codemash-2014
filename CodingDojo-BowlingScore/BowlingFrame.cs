@@ -37,6 +37,13 @@ namespace CodingDojo_BowlingScore
                 return frameIsOver;
             }
         }
+        public bool IsScoringCompleted
+        {
+            get
+            {
+                return frameScoringCompleted;
+            }
+        }
         public int Number
         {
             get

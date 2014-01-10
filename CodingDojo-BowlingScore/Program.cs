@@ -14,7 +14,7 @@ namespace CodingDojo_BowlingScore
 
             while (!game.IsOver)
             {
-                Console.WriteLine("\nYou are on frame " + game.Frame + ", your score so far is: " + game.Score);
+                Console.WriteLine("\nYou are on frame {0}, throw {1}. Your score so far is: {2}", game.CurrentFrameNumber, game.CurrentThrow, game.Score);
 
                 int ballsHit;
                 string input;
@@ -29,6 +29,9 @@ namespace CodingDojo_BowlingScore
                 try
                 {
                     game.throwBall(ballsHit);
+                    Console.WriteLine("\n");
+                    Console.WriteLine(BowlingScoreStringRenderer.Render(game));
+                    Console.WriteLine("\n");
                 }
                 catch (InvalidBowlingFrameException)
                 {
