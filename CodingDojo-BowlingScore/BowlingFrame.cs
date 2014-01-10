@@ -8,8 +8,7 @@ namespace CodingDojo_BowlingScore
 {
     public class BowlingFrame
     {
-        protected int[] rolls;
-        protected int currentRoll = 0;
+        protected List<int> rolls = new List<int>();
         protected int bonusScore = 0;
         protected int frameNumber;
         protected bool frameIsSpare = false;
@@ -51,15 +50,18 @@ namespace CodingDojo_BowlingScore
                 return rolls.Sum() + bonusScore;
             }
         }
+        public List<int> Rolls
+        {
+            get
+            {
+                // TODO: Even though this is a read-only property, could it potentially be modified after being returned? How do I prevent this?
+                return rolls;
+            }
+        }
 
         public BowlingFrame(int newFrameNumber)
         {
             frameNumber = newFrameNumber;
-            rolls = new int[3];
-            for (int i = 0; i < 3; i++)
-            {
-                rolls[i] = 0;
-            }
         }
 
         public void throwBall(int pinsHit)
@@ -70,26 +72,31 @@ namespace CodingDojo_BowlingScore
                 throw new BowlingFrameOverException();
             }
 
-            // You can only knock over a total of 10 pins.
-            if (rolls.Sum() + pinsHit > 10)
+            // You can only knock over a total of 10 pins on the first 9 frames.
+            if (rolls.Sum() + pinsHit > 10 && frameNumber != 10)
+            {
+                throw new InvalidBowlingFrameException();
+            }
+            // You could potentially knock over up to 30 pins on the 10th frame.
+            if (rolls.Sum() + pinsHit > 30 && frameNumber == 10)
             {
                 throw new InvalidBowlingFrameException();
             }
 
-            rolls[currentRoll] = pinsHit;
+            rolls.Add(pinsHit);
 
-            if (currentRoll == 0 && Score == 10)
+            if (rolls.Count == 1 && Score == 10)
             {
                 frameIsStrike = true;
             }
-            else if (currentRoll == 1 && Score == 10)
+            else if (rolls.Count == 2 && Score == 10)
             {
                 frameIsSpare = true;
             }
 
             // Check for end frames.
             // All frames except the 10th end after 2 rolls.
-            if (frameNumber != 10 && currentRoll >= 1)
+            if (frameNumber != 10 && rolls.Count >= 2)
             {
                 frameIsOver = true;
             }
@@ -99,20 +106,22 @@ namespace CodingDojo_BowlingScore
                 frameIsOver = true;
             }
             // If you didn't throw a strike in the 10th frame, you only get 2 throws.
-            else if (frameNumber == 10 && currentRoll >= 1 && !frameIsSpare && !frameIsStrike)
+            else if (frameNumber == 10 && rolls.Count >= 2 && !frameIsSpare && !frameIsStrike)
             {
                 frameIsOver = true;
             }
             // If you threw a strike or a spare in the 10th frame, then the frame ends after 3 balls.
-            else if (frameNumber == 10 && currentRoll >= 2)
+            else if (frameNumber == 10 && rolls.Count >= 3)
             {
                 frameIsOver = true;
             }
-            
+        }
 
-            if (!frameIsOver)
+        public void calculateBonusScore(BowlingFrame[] nextFrames)
+        {
+            if (frameNumber < 10)
             {
-                currentRoll++;
+
             }
         }
     }
