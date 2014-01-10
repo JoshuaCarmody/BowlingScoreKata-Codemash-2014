@@ -43,7 +43,9 @@
   <ItemGroup>
     <Compile Include="BowlingFrame.cs" />
     <Compile Include="BowlingGame.cs" />
-    <Compile Include="Exceptions\GameAlreadyOverException.cs" />
+    <Compile Include="Exceptions\BowlingFrameOverException.cs" />
+    <Compile Include="Exceptions\BowlingGameOverException.cs" />
+    <Compile Include="Exceptions\InvalidBowlingFrameException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

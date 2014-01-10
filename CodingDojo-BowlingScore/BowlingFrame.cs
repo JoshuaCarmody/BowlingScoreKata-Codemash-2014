@@ -8,16 +8,65 @@ namespace CodingDojo_BowlingScore
 {
     public class BowlingFrame
     {
-        int[] rolls;
-        int currentRoll = 0;
+        protected int[] rolls;
+        protected int currentRoll = 0;
+        protected int frameScore = 0;
+        protected int bonusScore = 0;
+        protected int frameNumber;
+        protected bool frameIsSpare = false;
+        protected bool frameIsStrike = false;
+        protected bool frameIsOver = false;
 
-        public BowlingFrame()
+        public bool IsSpare
         {
+            get
+            {
+                return frameIsSpare;
+            }
+        }
+        public bool IsStrike
+        {
+            get
+            {
+                return frameIsStrike;
+            }
+        }
+        public bool IsOver
+        {
+            get
+            {
+                return frameIsOver;
+            }
+        }
+        public int Number
+        {
+            get
+            {
+                return frameNumber;
+            }
+        }
+        public int Score
+        {
+            get
+            {
+                return frameScore;
+            }
+        }
+
+        public BowlingFrame(int newFrameNumber)
+        {
+            frameNumber = newFrameNumber;
             rolls = new int[3];
             for (int i = 0; i < 3; i++)
             {
                 rolls[i] = 0;
             }
+        }
+
+        public void throwBall(int pinsHit)
+        {
+            rolls[currentRoll] = pinsHit;
+            currentRoll++;
         }
     }
 }

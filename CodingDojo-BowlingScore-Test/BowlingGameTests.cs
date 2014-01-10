@@ -6,7 +6,7 @@ using CodingDojo_BowlingScore;
 namespace CodingDojo_BowlingScore_Test
 {
     [TestClass]
-    public class BowlingScoreTests
+    public class BowlingGameTests
     {
         [TestMethod]
         public void Rolling_12_Strikes_Should_Score_300()
@@ -60,7 +60,7 @@ namespace CodingDojo_BowlingScore_Test
                     game.throwBall(9);
                 }
             }
-            catch (GameAlreadyOverException e)
+            catch (BowlingGameAlreadyOverException e)
             {
                 threwAnError = true;
             }
