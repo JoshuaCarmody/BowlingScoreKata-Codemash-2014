@@ -64,6 +64,12 @@ namespace CodingDojo_BowlingScore
 
         public void throwBall(int pinsHit)
         {
+            // You can't throw a ball on an ended frame.
+            if(frameIsOver)
+            {
+                throw new BowlingFrameOverException();
+            }
+
             // You can only knock over a total of 10 pins.
             if (rolls.Sum() + pinsHit > 10)
             {
@@ -71,7 +77,33 @@ namespace CodingDojo_BowlingScore
             }
 
             rolls[currentRoll] = pinsHit;
-            currentRoll++;
+
+            if (currentRoll == 0 && Score == 10)
+            {
+                frameIsStrike = true;
+            }
+            else if (currentRoll == 1 && Score == 10)
+            {
+                frameIsSpare = true;
+            }
+
+            // Check for end frames.
+            // All frames except the 10th end after 2 rolls.
+            if (frameNumber != 10 && currentRoll >= 1)
+            {
+                frameIsOver = true;
+            }
+            // Throwing a strike ends the frame, if not the tenth.
+            if (frameNumber != 10 && frameIsStrike)
+            {
+                frameIsOver = true;
+            }
+            
+
+            if (!frameIsOver)
+            {
+                currentRoll++;
+            }
         }
     }
 }

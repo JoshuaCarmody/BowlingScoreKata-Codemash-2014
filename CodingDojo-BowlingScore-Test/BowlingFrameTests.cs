@@ -76,7 +76,7 @@ namespace CodingDojo_BowlingScore_Test
             frame.throwBall(6);
             frame.throwBall(4);
             Assert.IsTrue(frame.IsSpare);
-            Assert.IsTrue(frame.IsStrike);
+            Assert.IsFalse(frame.IsStrike);
         }
 
         [TestMethod]
